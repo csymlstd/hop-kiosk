@@ -1,0 +1,41 @@
+<div class="ui equal width grid">
+  <div class="column center aligned">
+    <div class="ui segment" ng-class="{'loading': total.brews == 0}">
+      <div class="ui olive statistic">
+        <div class="value">
+          {{ total.brews }}
+        </div>
+        <div class="label">
+          Total Brews
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="column center aligned">
+    <div class="ui segment" ng-class="{'loading': total.users == 0}">
+      <div class="ui brown statistic">
+        <div class="value">
+          {{ total.users }}
+        </div>
+        <div class="label">
+          Total Users
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="column center aligned">
+    <div class="ui segment" ng-class="{'loading': total.tasted == 0}">
+      <div class="ui yellow statistic">
+        <div class="value">
+          {{ total.tasted }}
+        </div>
+        <div class="label">
+          Total Tasted
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  <p><a class="ui button" ng-click="purge()">Purge</a></p>

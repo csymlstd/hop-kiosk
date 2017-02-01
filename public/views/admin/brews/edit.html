@@ -1,0 +1,62 @@
+<div class="ui inverted attached top segment padded">
+  <h1 class="ui header aligned center">{{ brew[0].name }}</h1>
+</div>
+
+<div class="content">
+  <div class="alert callout" ng-show="error">{{ errorMessage }}</div>
+
+  <form class="ui form" name="edit_brew" ng-submit="update()" enctype="multipart/form-data" novalidate>
+    <div class="field required name">
+      <label for="name">Name</label>
+      <input type="text" name="name" ng-model="updateBrew.name" placeholder="Brew Name" autocapitalize="none" autocorrect="off" required autofocus />
+    </div>
+    <div class="field required brewer">
+      <label for="brewer">Brewer</label>
+      <input type="text" name="brewer" ng-model="updateBrew.brewer.name" placeholder="Brewer Name" autocapitalize="none" autocorrect="off" required />
+    </div>
+    <div class="field style">
+      <label for="name">Style</label>
+      <input type="text" name="style" ng-model="updateBrew.style" autocapitalize="none" autocorrect="off" required />
+    </div>
+    <div class="field abv">
+      <label for="name">ABV</label>
+      <div class="ui right labeled input">
+        <input type="text" ng-model="updateBrew.abv" />
+        <div class="ui basic label">%</div>
+      </div>
+    </div>
+    <div class="field description description">
+      <label for="name">Description</label>
+      <textarea ng-model="updateBrew.description" name="description"></textarea>
+    </div>
+  </form>
+
+  <div class="ui divider"></div>
+
+  <div class="ui button dropdown icon" ng-if="brew[0].brewdb_id">
+    <i class="checkmark icon green fitted"></i>
+    <span class="text">Linked to BreweryDB</span>
+    <i class="dropdown icon"></i>
+    <div class="menu">
+      <div class="item">Sync</div>
+      <div class="item">Unlink</div>
+    </div>
+  </div>
+
+  <div class="ui button dropdown floating icon">
+    <i class="checkmark icon green fitted"></i>
+    <span class="text">In Stock</span>
+    <i class="dropdown icon"></i>
+    <div class="menu">
+      <div class="item">Draught</div>
+      <div class="item">Bottle</div>
+      <div class="item">Can</div>
+    </div>
+  </div>
+
+</div>
+
+
+<div class="actions">
+  <a class="ui button secondary print" ng-click="save()">Save</a>
+</div>

@@ -1,0 +1,23 @@
+
+<div class="ui container grid">
+  <div class="row">
+    <div class="column">
+      <h1>{{ user.name.first }}'s {{ title }}</h1>
+    </div>
+  </div>
+  <div class="four wide column">
+    <div class="ui vertical menu">
+      <a class="item" ng-class="{active: $state.is('account')}" ui-sref="account">Your Account</a>
+      <a class="item" ng-class="{active: $state.is('account.profile')}" ui-sref="account.profile">Profile</a>
+      <a class="item" ng-class="{active: $state.is('account.cards')}" ui-sref="account.cards">Cards</a>
+      <a class="item" ng-class="{active: $state.is('account.notifications')}" ui-sref="account.notifications">Notifications</a>
+      <a class="item" ng-class="{active: $state.is('account.social')}" ui-sref="account.social">Social Accounts</a>
+      <a class="item" ng-class="{active: $state.is('account.sessions')}" ui-sref="account.sessions">Sessions</a>
+      <a class="item" ng-class="{active: $state.is('account.applications')}" ui-sref="account.applications">Applications</a>
+    </div>
+  </div>
+
+  <div class="twelve wide column">
+    <div ui-view="settings"></div>
+  </div>
+</div>

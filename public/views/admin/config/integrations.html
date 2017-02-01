@@ -1,0 +1,56 @@
+<form class="ui form" id="form_config_application">
+  <h4 class="ui top attached segment secondary">BreweryDB</h4>
+  <div class="ui segment bottom attached">
+    <div class="field">
+      <div class="ui toggle checkbox">
+        <input type="checkbox" id="field_integrations_brewerydb_enable" ng-model="form.data.integrations.brewerydb.enable" ng-true-value="true" ng-false-value="false"  />
+        <label for="field_integrations_brewerydb_enable">Enable</label>
+      </div>
+      <div class="ui divider"></div>
+        <p>Use the BreweryDB to autopopulate your Brew and Brewery data when adding to your collection.</p>
+
+    </div>
+    <div class="field" ng-show="form.data.integrations.brewerydb.enable">
+      <label for="field_integrations_brewerydb_key">API Key</label>
+      <input type="text" id="field_integrations_brewerydb_key" ng-model="form.data.integrations.brewerydb.key" placeholder="" />
+    </div>
+    <div class="field">
+      <p><a href="https://brewerydb.com/developers/apps" target="_blank" class="ui button">Configure BreweryDB App</a></p>
+    </div>
+  </div>
+
+  <h4 class="ui top attached segment secondary">Mailgun</h4>
+  <div class="ui segment bottom attached">
+    <div class="field">
+      <div class="ui toggle checkbox">
+        <input type="checkbox" id="field_integrations_mailgun_enable" ng-model="form.data.integrations.mailgun.enable" ng-true-value="true" ng-false-value="false"  />
+        <label for="field_integrations_mailgun_enable">Enable</label>
+      </div>
+    </div>
+  </div>
+
+  <h4 class="ui top attached segment secondary">Sentry</h4>
+  <div class="ui segment bottom attached">
+    <div class="field">
+      <div class="ui toggle checkbox">
+        <input type="checkbox" id="field_integrations_sentry_enable" ng-model="form.data.integrations.sentry.enable" ng-true-value="true" ng-false-value="false"  />
+        <label for="field_integrations_sentry_enable">Enable</label>
+      </div>
+    </div>
+  </div>
+
+  <h4 class="ui top attached segment secondary">Slack Webhooks</h4>
+  <div class="ui segment bottom attached">
+    <div class="field">
+      <div class="ui toggle checkbox">
+        <input type="checkbox" id="field_integrations_slack_enable" ng-model="form.data.integrations.slack.enable" ng-true-value="true" ng-false-value="false"  />
+        <label for="field_integrations_slack_enable">Enable</label>
+      </div>
+    </div>
+  </div>
+
+  <div class="field">
+    <input type="submit" class="ui primary button" value="Save" />
+  </div>
+
+</form>

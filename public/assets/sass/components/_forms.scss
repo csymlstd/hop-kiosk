@@ -1,0 +1,14 @@
+.page.step {
+  display: none;
+
+  &.active {
+    display: block;
+  }
+}
+
+.field {
+  .help {
+    padding: 0.5em 0;
+    color: rgba(0,0,0,.4);
+  }
+}

@@ -1,0 +1,30 @@
+<p><a ng-click="loginFacebook()" class="ui fluid facebook button" ng-class="{'loading': form.loading.facebook}" ng-show="config.app.auth.facebook.enable">Login with Facebook</a></p>
+<p><a ng-click="loginGoogle()" class="ui fluid google plus button" data-google ng-class="{'loading': form.loading.google}" ng-show="config.app.auth.google.enable">Login with Google</a></p>
+
+<div class="ui section horizontal divider">Or</div>
+
+<div class="ui error message" ng-show="error">{{ errorMessage }}</div>
+
+<form class="ui form" ng-submit="login()">
+  <div class="field username">
+    <input type="text" name="username" ng-model="form.login.username" placeholder="Username" autocapitalize="none" autocorrect="off" required />
+  </div>
+  <div class="field password">
+    <input type="password" name="password" ng-model="form.login.password" placeholder="Password" autocapitalize="none" autocorrect="off" required />
+  </div>
+  <div class="ui two buttons">
+    <button class="ui secondary button" type="submit" ng-disabled="disabled" ng-class="{'loading': form.loading.login}">Login</button>
+    <button class="ui button" ui-sref="register">Join the Club</button>
+  </div>
+</form>
+<div class="ui hidden divider"></div>
+<p><a class="ui button basic fluid" ui-sref="login/forgot">Forgot Password</a></p>
+
+<div class="ui section horizontal divider">Or</div>
+
+<h3 class="ui header aligned center">Swipe Card</h3>
+<form class="ui form" ng-submit="loginCard()">
+  <div class="ui input fluid icon" ng-class="{'loading': form.card.loading}">
+    <input type="text" autofocus ng-model="form.card.number" style="opacity: 0;" />
+  </div>
+</form>

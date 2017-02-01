@@ -1,0 +1,22 @@
+<div class="ui inverted attached top segment">
+  <h4 class="ui header aligned center brewer">{{ info.brew[0].brewer[0].name }}</h4>
+  <h1 class="ui header aligned center">{{ info.brew[0].name }}</h1>
+  <h4 class="ui header aligned center style"> {{ info.brew[0].style }}</h4>
+  <div class="row meta">
+    <div class="small-6 columns">
+      <div class="abv"><span class="percent">{{ info.brew[0].abv }}%</span> <span class="units">Alc / Vol</span></div>
+    </div>
+    <div class="small-6 columns">
+      <div class="glass">{{ info.brew[0].glass }}</div>
+    </div>
+  </div>
+</div>
+
+<div class="content">
+    <p>{{ info.brew[0].description }}</p>
+</div>
+
+<div class="actions">
+  <div class="ui basic label small">{{ info.brew[0]._id }}.{{ user._id }}.{{ info.store }}.t</div>
+  <a class="ui button huge print" ng-click="taste()">Print</a>
+</div>

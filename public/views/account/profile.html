@@ -1,0 +1,46 @@
+<h3>Edit Profile</h3>
+<div class="alert callout" ng-show="error">{{ errorMessage }}</div>
+<form class="ui form" name="profile_edit" ng-submit="update()" enctype="multipart/form-data" novalidate>
+
+  <div class="field photo">
+    <label for="username">Photo</label>
+    <div ng-show="progress">Uploading</div>
+    <input type="file" name="photo" ngf-select ng-model="updateUser.photo" />
+    <!-- <div class="drop-box" ngf-drop ng-model="files">Drop Here</div> -->
+  </div>
+
+  <div class="field required username">
+    <label for="username">Username</label>
+    <input type="text" name="username"  ng-model="updateUser.username" placeholder="Username" autocapitalize="none" autocorrect="off" required autofocus />
+  </div>
+  <div class="field required email">
+    <label for="username">Email</label>
+    <input type="email" name="email" ng-model="updateUser.email" placeholder="Email"  />
+  </div>
+
+  <h4 class="ui dividing header">Change Password</h4>
+  <div class="two fields">
+  <div class="field password">
+    <label for="username">Current Password</label>
+    <input type="password" name="password" ng-model="updateUser.currentPassword" placeholder="Current Password" autocapitalize="none" autocorrect="off" required />
+  </div>
+  <div class="field password">
+    <label for="username">New Password</label>
+    <input type="password" name="password" ng-model="updateUser.password" placeholder="New Password" autocapitalize="none" autocorrect="off" required />
+  </div>
+  </div>
+
+  <h4 class="ui dividing header">Profile Information</h4>
+  <div class="two fields">
+  <div class="field first-name">
+    <label for="username">First Name</label>
+    <input type="text" name="name[first]" ng-model="updateUser.name.first" placeholder="First Name" />
+  </div>
+  <div class="field last-name">
+    <label for="username">Last Name</label>
+    <input type="text" name="name[last]" ng-model="updateUser.name.last" placeholder="Last Name" />
+  </div>
+  </div>
+
+  <button class="ui primary button" type="submit" ng-disabled="disabled">Save</button>
+</form>

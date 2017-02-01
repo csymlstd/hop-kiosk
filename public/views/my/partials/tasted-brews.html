@@ -1,0 +1,74 @@
+<h2>{{title}}</h2>
+<div class="ui segment" ng-class="{'loading': loading.brewsList }">
+  <div class="ui form">
+    <div class="field">
+      <div class="ui large fluid input">
+        <input type="search" ng-model="query.search" placeholder="Search by Name, Brewery, and Style">
+      </div>
+    </div>
+
+    <div class="two fields">
+      <div class="field">
+      <div class="ui toggle checkbox">
+        <input type="checkbox" class="switch-input" id="favorites" ng-model="query.favorites" ng-false-value="undefined">
+        <label for="favorites">
+          <i class="heart icon"></i>
+        </label>
+      </div>
+      </div>
+
+      <div class="field">
+        <div class="ui toggle checkbox">
+          <input type="checkbox" class="switch-input" id="sortReverse" ng-model="query.sort.reverse">
+          <label class="switch-paddle" for="sortReverse">
+            <span class="switch-active" aria-hidden="true">DSC</span>
+            <span class="switch-inactive" aria-hidden="true">ASC</span>
+          </label>
+        </div>
+      </div>
+    </div>
+
+    <div class="three fields">
+      <div class="field">
+        <label>Round</label>
+        <select ng-model="query.round" ng-options="option.name for option in query.rounds track by option.id" class="ui dropdown fluid"></select>
+      </div>
+      <div class="field">
+        <label>Sort By </label>
+        <select ng-model="query.sort.by"  class="ui dropdown fluid">
+          <option value="name">Brew Name</option>
+          <option value="tasted">Tasted Date</option>
+        </select>
+      </div>
+      <div class="field">
+        <label>Glass</label>
+        <select ng-model="query.container"  class="ui dropdown fluid">
+          <option value="">Any</option>
+          <option value="bottle">Bottle/Can</option>
+          <option value="draught">Draught</option>
+        </select>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="ui vertical padded segment">
+  <div class="ui vertical segment brew tasted" ui-sref="my.brews.info({userbrew_id: userbrew._id})" data-id="{{ userbrew._id }}" ng-repeat="userbrew in userBrews | filter: { favorite: query.favorites } | filter: searchFor | filter: tasted | filter: roundOnly | orderBy: sortBrews:query.sort.reverse as results">
+
+    <div class="name medium ui header">
+      {{ userbrew.brew.name }}
+        <span class="sub header inline brewer">{{userbrew.brew.brewer.name}}</span>
+    </div>
+
+    <div class="ui horizontal label">{{ userbrew.tasted[0].round }} <div class="detail tasted-date">{{ userbrew.tasted[0].tasted  | amDateFormat:'ddd, MMM Do YYYY'}}</div></div>
+
+
+    <span class="favorite" ng-click="favorite()" ng-show="userbrew.favorite"><i class="heart icon"></i></span>
+  </div>
+  <div ng-if="results.length === 0">
+    <span ng-if="!query.search && !query.favorites">You haven't tasted any brews yet.</span>
+    <span ng-if="query.search">No brews found...</span>
+    <span ng-if="query.favorites && !query.search">You do not have any favorites.</span>
+  </div>
+
+</div>

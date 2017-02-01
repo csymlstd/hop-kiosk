@@ -1,0 +1,17 @@
+
+<h3>{{ title }}</h3>
+<a ng-click="unlinkSocial('facebook')" class="ui label blue" ng-show="user.oauth.facebook">
+  Facebook
+  <div class="detail">{{ user.oauth.facebook.id }}</div>
+  <span aria-hidden="true">&times;</span>
+</a>
+<a ng-click="unlinkSocial('google')" ng-show="user.oauth.google">
+  Google
+  <div class="detail">{{ user.oauth.google.id }}</div>
+  <span aria-hidden="true">&times;</span>
+</a>
+
+<div class="ui segment">
+<p><a ng-click="linkSocial('facebook')" ng-hide="user.oauth.facebook" class="ui button facebook">Connect Facebook</a>
+<a ng-click="linkSocial('google')" ng-hide="user.oauth.google" class="ui button google plus">Connect Google</a></p>
+</div>

@@ -1,0 +1,22 @@
+
+<div class="ui grid">
+  <div class="ui eight wide centered column">
+    <h1 class="ui header center aligned">One Last Thing</h1>
+    <div class="ui segment">
+    <div class="alert callout" ng-show="error">{{ errorMessage }}</div>
+    <form class="ui form" ng-submit="welcome()" enctype="multipart/form-data">
+      <div class="field username">
+        <label for="username">Choose a Username</label>
+        <input type="text" name="username" ng-model="form.username" placeholder="Username" autocapitalize="none" autocorrect="off" required autofocus />
+      </div>
+      <div class="field email">
+        <label for="username">Email</label>
+        <input type="email" name="email" placeholder="Email" ng-value="form.email" />
+        <p class="help">If you need to recover your account we will email this address.</p>
+      </div>
+      <button class="ui secondary button" type="submit" ng-disabled="disabled">Finish</button>
+      <a class="ui button" ui-sref="logout">Cancel</a>
+    </form>
+    </div>
+  </div>
+</div>

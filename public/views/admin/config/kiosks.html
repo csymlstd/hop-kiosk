@@ -1,0 +1,49 @@
+<form class="ui form" id="form_config_application">
+  <h4 class="ui top attached segment secondary">Kiosks</h4>
+  <div class="ui segment bottom attached">
+    <div class="field">
+      <div class="ui toggle checkbox">
+        <input type="checkbox" id="field_kiosks_enable" ng-model="form.data.kiosks.enable" ng-true-value="true" ng-false-value="false"  />
+        <label for="field_kiosks_enable">Enable Kiosks Globally</label>
+      </div>
+      <div class="ui message secondary">
+        <p>Kiosks may be disabled at the store level.</p>
+      </div>
+    </div>
+  </div>
+
+  <h4 class="ui top attached segment secondary">Cache &amp; LocalStorage</h4>
+  <div class="ui segment bottom attached">
+    <div class="field">
+      <div class="ui toggle checkbox">
+        <input type="checkbox" id="field_kiosks_cache_private" ng-model="form.data.kiosks.cache.private" ng-true-value="false" ng-false-value="true" ng-disabled="config.kiosks.cache.private" />
+        <label for="field_kiosks_cache_private">Cache Global Data</label>
+      </div>
+      <div class="ui message secondary">
+        <p>Required if Club Network is set to Global.</p>
+      </div>
+    </div>
+    <div class="field">
+      <label for="field_kiosks_cache_brews">Check for Updates Every</label>
+      <div class="ui right labeled input">
+        <input type="text" id="field_kiosks_cache" ng-model="form.data.kiosks.cache.time" placeholder="15" />
+        <div class="ui simple dropdown label">
+          <div class="text">{{  form.data.kiosks.cache.interval || 'minutes' }}</div>
+          <i class="dropdown icon"></i>
+          <div class="menu">
+            <div class="item" ng-click="form.data.kiosks.cache.interval = 'minutes'">minutes</div>
+            <div class="item" ng-click="form.data.kiosks.cache.interval = 'hours'">hours</div>
+            <div class="item" ng-click="form.data.kiosks.cache.interval = 'days'">days</div>
+            <div class="item" ng-click="form.data.kiosks.cache.interval = 'weeks'">weeks</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="field">
+    <input type="submit" class="ui primary button" value="Save" />
+  </div>
+
+</form>

@@ -1,0 +1,18 @@
+<div class="row">
+  <h1 class="text-center">Add Brew to Collection</h1>
+
+    <div class="ui fluid search input">
+      <input type="text" ng-model="query.brew" ng-change="searchBrewDb()" placeholder="Search Brew by Name" ng-model-options="{debounce: 750}" querybrewdb />
+        <div class="ui popup transition hidden search-popup results">
+          <div class="result" ng-hide="brewDbResults.length > 0">
+            <div class="description">Search for brews to add to your collection.</div>
+          </div>
+          <div class="result" ng-repeat="brew in brewDbResults" ng-click="selectBrew(brew.id)">
+            <div class="content">
+              <div class="title">{{ brew.name }}</div>
+              <div class="description">{{ brew.breweries[0].name }}</div>
+            </div>
+          </div>
+        </div>
+    </div>
+</div>

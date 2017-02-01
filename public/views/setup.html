@@ -1,0 +1,61 @@
+  <h1 class="text-center">Welcome to Hop</h1>
+  <form class="ui form">
+
+    <div class="ui ordered three steps">
+    <div class="step" ng-class="{'active': form.step == 1, 'completed': form.step > 1}">
+      <div class="content">
+        <div class="title">Connect</div>
+        <div class="description">Connect to your Hop server</div>
+      </div>
+    </div>
+    <div class="step" ng-class="{'active': form.step == 2, 'completed': form.step > 2}">
+      <div class="content">
+        <div class="title">Choose Store</div>
+        <div class="description">Sync your Member Data</div>
+      </div>
+    </div>
+    <div class="step" ng-class="{'active': form.step == 3, 'completed': form.step > 3}">
+      <div class="content">
+        <div class="title">Complete Setup</div>
+        <div class="description">Start drinking!</div>
+      </div>
+    </div>
+  </div>
+
+    <div class="page step" ng-class="{'active': form.step == 1}">
+      <h3 class="ui top attached secondary segment">Connect to Server</h3>
+      <div class="ui bottom attached segment">
+        <div class="field" ng-class="{'error': form.errors.setup.url}">
+          <label for="field_setup_url">Your Hop API URL: {{ form.setup.url }}</label>
+          <input type="text" id="field_setup_key" ng-model="form.setup.url" placeholder="http://api.hop.com" required />
+        </div>
+        <div class="field">
+          <label for="field_setup_key">API Key</label>
+          <input type="text" id="field_setup_key" ng-model="form.setup.key" placeholder="Generate an API Key in the Admin" />
+        </div>
+      </div>
+    </div>
+
+    <div class="page step" ng-class="{'active': form.step == 2}">
+      <h3 class="ui top attached secondary segment">Choose a Store</h3>
+      <div class="ui bottom attached segment stores">
+        <div class="ui segment" ng-class="{'olive inverted': form.store == store._id }" ng-repeat="store in storeOptions">
+          <div class="ui grid">
+            <div class="eight wide column">
+              <h3 class="ui header">
+                {{ store.name }}
+                <div class="sub header">{{ store.address.city }}, {{ store.address.state }}</div>
+              </h3>
+            </div>
+            <div class="column eight wide right aligned">
+              <button class="ui button " ng-click="selectStore(store._id)">Select</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ui vertical segment">
+      <a class="ui button" ng-click="setup()">Continue {{ selectedStore }}</a>
+    </div>
+  </form>

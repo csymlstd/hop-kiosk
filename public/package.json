@@ -1,0 +1,45 @@
+{
+  "name": "hop-kiosk",
+  "version": "0.0.1",
+  "description": "",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Casey Milstead",
+  "license": "ISC",
+  "dependencies": {
+    "angular": "^1.5.8",
+    "angular-jwt": "^0.1.3",
+    "angular-loading-bar": "^0.9.0",
+    "angular-moment": "^0.10.3",
+    "angular-selectize2": "^1.2.3",
+    "bluebird": "^3.4.6",
+    "foundation-apps": "^1.2.0",
+    "foundation-sites": "^6.2.3",
+    "jsonwebtoken": "^7.1.9",
+    "moment": "^2.14.1",
+    "ngstorage": "^0.3.11"
+  },
+  "devDependencies": {
+    "babel-preset-es2015": "^6.14.0",
+    "babelify": "^7.3.0",
+    "browser-sync": "^2.14.3",
+    "browserify": "^13.1.0",
+    "coffeeify": "^2.0.1",
+    "del": "^2.2.2",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^3.1.1",
+    "gulp-babel": "^6.1.2",
+    "gulp-concat": "^2.6.0",
+    "gulp-notify": "^2.2.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^2.3.2",
+    "gulp-size": "^2.1.0",
+    "gulp-sourcemaps": "^1.6.0",
+    "gulp-uglify": "^2.0.0",
+    "merge": "^1.2.0",
+    "vinyl-buffer": "^1.0.0",
+    "vinyl-source-stream": "^1.1.0"
+  }
+}

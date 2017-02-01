@@ -1,0 +1,54 @@
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+  display: none !important;
+}
+
+.brew {
+  animation: fadeIn;
+  -webkit-animation-duration: 0.2s;
+  animation-duration: 0.2s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+//////////////
+//  Tabs //
+//////////////
+
+.tabs {
+  .active a {
+    background: #49483E;
+    color: #A6E22D;
+  }
+}
+
+.progress.success .progress-meter, .ui.progress .bar {
+  background: #A6E22D!important;
+  transition: width 0.6s cubic-bezier(0.075, 0.82, 0.165, 1);
+ }
+
+//////////////
+//  Modal //
+//////////////
+
+.modals.dimmer {
+  background: rgba(0,0,0,0.2);
+}
+
+.modal {
+  top: 10em!important;
+  border: 0;
+  border-radius: 0.5em;
+  box-shadow: 0 12px 15px 0 rgba(0,0,0,0.1),0 17px 50px 0 rgba(0,0,0,0.05);
+
+  &:focus {
+    outline: 0;
+  }
+}
+
+//////////////
+//  Admin Add Brews Popup //
+//////////////
+
+.ui.popup.search-popup {
+  padding: 0!important;
+}

@@ -1,0 +1,28 @@
+<div class="ui inverted attached top segment">
+  <h4 class="ui header aligned center brewer">{{ userbrew.brew[0].brewer[0].name }}</h4>
+  <h1 class="ui header aligned center">{{ userbrew.brew[0].name }}</h1>
+  <h4 class="ui header aligned center style"> {{ userbrew.brew[0].style }}</h4>
+  <div class="row meta">
+    <div class="small-6 columns">
+      <div class="abv"><span class="percent">{{ userbrew.brew[0].abv }}%</span> <span class="units">Alc / Vol</span></div>
+    </div>
+    <div class="small-6 columns">
+      <div class="glass">{{ userbrew.brew[0].glass }}</div>
+    </div>
+  </div>
+</div>
+
+<div class="content">
+    <p>{{ userbrew.brew[0].description }}</p>
+
+    <ul class="tasted">
+      <li ng-repeat="taste in userbrew.tasted">
+        <span class="round">{{ taste.round }}</span>
+        <span class="date">{{ taste.tasted  | amDateFormat:'ddd, MMM Do YYYY'}}</span>
+      </li>
+    </ul>
+</div>
+
+<div class="actions">
+  <a class="ui button huge favorite" ng-click="favorite()">❤️</a>
+</div>

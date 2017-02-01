@@ -1,0 +1,18 @@
+<div class="ui grid container">
+  <div class="ui ten wide column centered">
+    <div class="ui segment padded">
+
+      <form id="scan" class="ui form" ng-submit="scan()">
+        <div class="ui action fluid input">
+          <input type="text" id="field_code" ng-model="form.code" placeholder="Scan a receipt or enter the receipt ID" autofocus autocomplete="off" tabindex="0" required />
+          <button class="ui button" focus-id="field_code" ng-class="{'loading': form.loading.code }" type="submit">Scan</button>
+        </div>
+      </form>
+    </div>
+    <div class="ui" ng-if="form.errors">
+      <div class="ui message large attached" ng-repeat="message in form.errors" ng-class="{'error': message.error, 'success': !message.error}">
+        <p><i class="icon" ng-class="{'warning sign': message.error, 'checkmark': !message.error}"></i>  <span ng-bind-html="message.message | renderHTML"></span></p>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,74 @@
+<form class="ui form" id="form_config_application" ng-submit="save()">
+  <h4 class="ui top attached segment secondary">Basic Settings</h4>
+  <div class="ui segment bottom attached">
+      <div class="field">
+        <label for="field_app_name">Application Name</label>
+        <input type="text" id="field_app_name" ng-model="form.data.app.name" placeholder="Hop" />
+      </div>
+      <div class="field">
+        <label for="field_api_domain">Server URL</label>
+        <input type="text" id="field_api_domain" ng-model="form.data.api.url" placeholder="https://api.hop.com" />
+      </div>
+  </div>
+
+  <h4 class="ui top attached segment secondary">User Authentication</h4>
+  <div class="ui segment bottom attached">
+    <h4 class="ui dividing header">Facebook</h4>
+    <div class="field">
+      <div class="ui toggle checkbox">
+        <input type="checkbox" id="field_app_auth_facebook_enable" ng-model="form.data.app.auth.facebook.enable" ng-true-value="true" ng-false-value="false"  />
+        <label for="field_app_auth_facebook_enable">Allow Login with Facebook</label>
+      </div>
+    </div>
+    <div class="field" ng-show="form.data.app.auth.facebook.enable">
+      <label for="field_app_auth_facebook_appID">Application ID</label>
+      <input type="text" id="field_app_auth_facebook_appID" ng-model="form.data.app.auth.facebook.appID" placeholder="" />
+    </div>
+    <div class="field" ng-show="form.data.app.auth.facebook.enable">
+      <label for="field_app_auth_facebook_clientSecret">Application Secret</label>
+      <input type="password" id="field_app_auth_facebook_clientSecret" ng-model="form.data.app.auth.facebook.clientSecret" placeholder="" />
+    </div>
+    <div class="field">
+      <p><a href="https://developers.facebook.com/apps/" target="_blank" class="ui button">Configure Facebook App</a></p>
+    </div>
+
+    <h4 class="ui dividing header">Google</h4>
+    <div class="field">
+      <div class="ui toggle checkbox">
+        <input type="checkbox" id="field_app_auth_google_enable" ng-model="form.data.app.auth.google.enable" ng-true-value="true" ng-false-value="false"  />
+        <label for="field_app_auth_google_enable">Allow Login with Google</label>
+      </div>
+    </div>
+    <div class="field" ng-show="form.data.app.auth.google.enable">
+      <label for="field_app_auth_google_clientID">Client ID</label>
+      <input type="text" id="field_app_auth_google_clientID" ng-model="form.data.app.auth.google.clientID" placeholder="" />
+    </div>
+    <div class="field" ng-show="form.data.app.auth.google.enable">
+      <label for="field_app_auth_google_clientSecret">Client Secret</label>
+      <input type="password" id="field_app_auth_google_clientSecret" ng-model="form.data.app.auth.google.clientSecret" placeholder="" />
+    </div>
+    <div class="field">
+      <p><a href="https://developers.facebook.com/apps/" target="_blank" class="ui button">Configure Google API</a></p>
+    </div>
+  </div>
+
+  <h4 class="ui top attached segment secondary">Storage</h4>
+  <div class="ui segment bottom attached">
+      <h4 class="ui dividing header">Content Delivery Network (CDN)</h4>
+      <div class="field">
+        <label for="field_storage_cdn_service">Service</label>
+        <select id="field_storage_cdn_service" ng-model="form.data.storage.cdn.service" class="ui fluid dropdown">
+          <option value="s3">Amazon S3</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="field_storage_cdn_url">URL</label>
+        <input type="text" id="field_storage_cdn_url" ng-model="form.data.storage.cdn.url" placeholder="http://hop.amazons3.com" />
+      </div>
+  </div>
+
+  <div class="field">
+    <input type="submit" class="ui primary button" value="Save" />
+  </div>
+
+</form>

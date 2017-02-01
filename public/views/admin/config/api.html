@@ -1,0 +1,30 @@
+<form class="ui form" id="form_config_application">
+  <div class="ui clearing top attached segment secondary">
+    <h4 class="ui floated left">API <a ui-sref="admin.applications" class="ui button">Manage Applications</a></h4>
+  </div>
+  <div class="ui segment bottom attached">
+    <div class="field">
+      <div class="ui toggle checkbox">
+        <input type="checkbox" id="field_api_enable" ng-model="form.data.api.enable" ng-true-value="true" ng-false-value="false"  />
+        <label for="field_kiosks_enable">Enable API</label>
+      </div>
+      <div class="ui message secondary">
+        <p>Allow members to register Applications to gain access to club data.</p>
+      </div>
+    </div>
+
+    <div class="field">
+      <label for="field_api_limit">Daily Rate Limit</label>
+      <input type="text" id="field_api_limit" ng-model="form.data.api.limit" placeholder="1000" />
+    </div>
+
+    <div class="field">
+
+    </div>
+  </div>
+
+  <div class="field">
+    <input type="submit" class="ui primary button" value="Save" />
+  </div>
+
+</form>

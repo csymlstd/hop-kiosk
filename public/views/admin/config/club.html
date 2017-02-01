@@ -1,0 +1,83 @@
+<form class="ui form" id="form_config_application" ng-submit="save()">
+  <h4 class="ui top attached segment secondary">Club Network</h4>
+  <div class="ui segment bottom attached">
+    <div class="field">
+      <div class="ui toggle checkbox">
+        <input type="checkbox" id="field_club_private" ng-model="form.data.club.private" ng-true-value="true" ng-false-value="false"  />
+        <label for="field_club_private">Private Network</label>
+      </div>
+      <div class="ui message secondary">
+        <p>A Private Network only allows members to collect brews at their home store. Different stores require require new membership.</p>
+        <p>A Public Network allows members to collect brews at any store.</p>
+      </div>
+    </div>
+  </div>
+
+  <h4 class="ui top attached segment secondary">Rounds &amp; Achievements</h4>
+  <div class="ui segment bottom attached">
+    <div class="field">
+      <div class="ui toggle checkbox">
+        <input type="checkbox" id="field_club_rounds_enabled" ng-model="form.data.club.rounds.enabled" ng-true-value="true" ng-false-value="false"  />
+        <label for="field_club_rounds_enabled">Enable Rounds</label>
+      </div>
+    </div>
+
+    <div class="ui divider"></div>
+
+    <div class="field" ng-show="form.data.club.rounds.enabled">
+      <label for="field_club_rounds_brewsPer">Brews Per Round</label>
+      <div class="ui right labeled input">
+        <input type="text" id="field_club_rounds_brewsPer" ng-model="form.data.club.rounds.brewsPer" placeholder="200" />
+        <div class="ui basic label">per round</div>
+      </div>
+    </div>
+
+    <div class="field" ng-show="form.data.club.rounds.enabled">
+      <div class="ui toggle checkbox">
+        <input type="checkbox" id="field_club_rounds_allowMultipleTastes" ng-model="form.data.club.rounds.allowMultipleTastes" ng-true-value="true" ng-false-value="false"  />
+        <label for="field_club_rounds_allowMultipleTastes">Allow Multiple Tastes in Round</label>
+      </div>
+      <div class="ui message secondary">
+        <p>By default a member may only taste a specific brew once per round.</p>
+      </div>
+    </div>
+
+    <div class="field" ng-show="form.data.club.rounds.enable">
+      <label for="field_club_rounds_dailyMax">Daily Brew Limit</label>
+      <div class="ui right labeled input">
+        <input type="text" id="field_club_rounds_dailyMax" ng-model="form.data.club.rounds.dailyMax" placeholder="3" />
+        <div class="ui basic label">per day</div>
+      </div>
+    </div>
+
+    <div class="ui divider" ng-show="form.data.club.rounds.enabled"></div>
+
+    <div class="field">
+      <div class="ui toggle checkbox">
+        <input type="checkbox" id="field_club_achievements_enable" ng-model="form.data.club.achievements.enable" ng-true-value="true" ng-false-value="false"  />
+        <label for="field_club_achievements_enable">Enable Achievements</label>
+      </div>
+    </div>
+  </div>
+
+
+  <h4 class="ui top attached segment secondary">Receipts &amp; Redemption</h4>
+  <div class="ui segment bottom attached">
+    <div class="field">
+      <label for="field_club_scan_buffer">Scan Buffer</label>
+      <div class="ui right labeled input">
+        <input type="text" id="field_club_scan_buffer" ng-model="form.data.club.scan.buffer" placeholder="4" />
+        <div class="ui basic label">hours</div>
+      </div>
+      <div class="ui message secondary">
+        <p>The number of hours after <strong>midnight</strong> that scans are counted towards the previous business day.</p> <p><em>Maximum is 12 hours (noon the next day).</em></p>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="field">
+    <input type="submit" class="ui primary button" value="Save" />
+  </div>
+
+</form>

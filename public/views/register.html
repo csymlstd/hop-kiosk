@@ -1,0 +1,35 @@
+<h3>Create an Account</h3>
+<div class="alert callout" ng-show="error">{{ error.message }}</div>
+<form class="ui form" name="register" ng-submit="register()" enctype="multipart/form-data">
+
+  <div class="ui field required username">
+    <label for="username">Username</label>
+    <input type="text" name="username"  ng-model="form.username" placeholder="Username" autocapitalize="none" autocorrect="off" required autofocus />
+  </div>
+  <div class="ui field required email">
+    <label for="username">Email</label>
+    <input type="email" name="email" ng-model="form.email" placeholder="Email"  />
+  </div>
+
+  <div class="ui field required password">
+    <label for="username">Password</label>
+    <div class="ui input action">
+      <input type="{{form.toggle.password.type || 'password'}}" name="password" ng-model="form.password" placeholder="Password" autocapitalize="none" autocorrect="off" required />
+      <a class="ui icon button" ng-click="togglePassword()"><i class="{{ form.toggle.password.string }} icon"></i></a>
+    </div>
+  </div>
+
+  <h4 class="ui dividing header">Profile Information</h4>
+  <div class="two fields">
+  <div class="field first-name">
+    <label for="username">First Name</label>
+    <input type="text" name="name[first]" ng-model="form.name.first" placeholder="First Name" />
+  </div>
+  <div class="field last-name">
+    <label for="username">Last Name</label>
+    <input type="text" name="name[last]" ng-model="form.name.last" placeholder="Last Name" />
+  </div>
+  </div>
+
+  <button class="ui primary button" type="submit" ng-disabled="form.disabled">Register</button>
+</form>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html ng-app="hop">
+<head>
+  <title>Hop</title>
+  <link rel="stylesheet" href="/assets/dist/css/semantic.css" />
+  <link id="apiRoot" href="http://mini.dev:5000/"/>
+  <base href="/">
+</head>
+<body>
+  <div id="fb-root"></div>
+  <header class="ui fixed inverted main menu massive">
+    <div class="ui container">
+      <a ui-sref="home" class="header item" ng-cloak>{{ config.app.name || 'Hop' }}</a>
+      <div class="ui menu inverted">
+        <a ui-sref="brews" class="item">🍻</a>
+        <a ui-sref="my" ng-show="user" ng-cloak class="item">👽</a>
+        <a ui-sref="scan" ng-show="user" ng-cloak class="item">Scan</a>
+      </div>
+      <nav class="ui menu inverted right" ng-hide="user" ng-cloak>
+        <a class="item" ui-sref="home">Login</a>
+        <a class="item" ui-sref="register">Join the Club</a>
+      </nav>
+      <nav class="ui menu inverted right" ng-show="user" ng-cloak>
+        <a ui-sref="admin" class="item">Admin</a>
+        <a class="item" ui-sref="logout">Logout</a>
+      </nav>
+    </div>
+  </header>
+
+
+  <div ng-controller="mainController" class="ui main container">
+    <div class="connection animated bounceInUp" ng-if="connection" ng-cloak>{{connection}}</div>
+    <div ui-view="main"></div>
+  </div>
+
+  <script src="//apis.google.com/js/platform.js?onload=googleAsyncInit" async defer></script>
+  <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+  <script src="../node_modules/localforage/dist/localforage.min.js"></script>
+  <script src="/assets/dist/js/selectize.min.js"></script>
+  <script src="/assets/dist/js/sweetalert.min.js"></script>
+  <script src="/assets/dist/js/app.js"></script>
+  <script src="/app/init.js"></script>
+  <script src="/app/services.auth.js"></script>
+  <script src="/app/services.api.js"></script>
+  <script src="/app/services.config.js"></script>
+  <script src="/app/services.brews.js"></script>
+  <script src="/app/services.files.js"></script>
+  <script src="/app/controllers.js"></script>
+  <script src="/app/controllers.my.js"></script>
+  <script src="/app/controllers.brews.js"></script>
+  <script src="/app/controllers.account.js"></script>
+  <script src="/app/controllers.admin.js"></script>
+  <script src="/app/controllers.admin.brews.js"></script>
+  <script src="/app/controllers.admin.config.js"></script>
+
+</body>
+</html>

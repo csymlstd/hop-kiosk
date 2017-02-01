@@ -1,0 +1,62 @@
+body {
+  background: color('accent', 'light');
+}
+
+#loading-bar-spinner .spinner-icon {
+  border-top-color:  color('accent');
+  border-left-color: color('accent');
+}
+
+#loading-bar .bar {
+  background: color('accent');
+}
+
+/* Fancy blur effect */
+#loading-bar .peg {
+  -moz-box-shadow: color('accent') 1px 0 6px 1px;
+  -ms-box-shadow: color('accent') 1px 0 6px 1px;
+  -webkit-box-shadow: color('accent') 1px 0 6px 1px;
+  box-shadow: color('accent') 1px 0 6px 1px;
+}
+
+header {
+  background: #49483e;
+
+  .logo {
+    font-weight: 300;
+    font-size: 32px;
+    text-align: center;
+    color: color('accent');
+  }
+
+  .row {
+    display: flex;
+    align-items: center;
+  }
+
+  a {
+    color: #fff;
+    text-decoration: none;
+  }
+
+  nav {
+    ul {
+      margin: 0; padding: 0;
+
+      li {
+        display: inline-block;
+        margin: 0 0.5em;
+      }
+    }
+
+    &.main {
+      ul {
+        float: right;
+      }
+    }
+  }
+}
+
+.main.container {
+    padding-top: 6em;
+  }

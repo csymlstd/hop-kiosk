@@ -1,0 +1,68 @@
+<div class="ui equal width vertically padded grid">
+  <div class="column">
+    <!-- <h1>{{ title }}</h1> -->
+    <h2>Hello, {{ user.name.first }} {{ user.name.last }} <a ui-sref="account" class="ui small inline button">Your Account</a></h2>
+
+    <div class="ui segments">
+      <div class="ui segment"  ng-class="{'loading': loading.round }">
+        <h3 class="ui center aligned header">Round {{ user.club.round }}</h3>
+
+        <div class="ui active small progress" data-percent="{{roundData.complete}}">
+          <div class="bar" style="width: {{roundData.complete}}%">
+            <div class="progress"></div>
+          </div>
+          <div class="label" ng-cloak>{{ roundData.total }} of {{ config.club.rounds.brewsPer }} tasted</div>
+        </div>
+      </div>
+
+      <div class="ui segment secondary" ng-if="!user.card.number">
+        <p class="text-center">You haven't registered a membership card yet. <a href="#">Don't have one?</a></p>
+        <a href="#" class="ui fluid button">Register Card</a>
+      </div>
+
+      <div class="ui segment secondary" ng-if="user.card.number">
+        <div class="ui dropdown inline">
+          <div class="text">
+            <span class="description">{{ user.card.number }}</span>
+            Dallas
+          </div>
+          <i class="dropdown icon"></i>
+          <div class="menu">
+            <div class="item active selected">
+              <span class="description">{{ user.card.number }}</span>
+              Dallas
+            </div>
+            <div class="item">
+              <span class="description">2648</span>
+              Austin
+            </div>
+            <div class="item">
+              <span class="description">8253</span>
+              San Antonio
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ui segments">
+      <div class="ui green inverted segment text-center">
+        <h1>🎉  Round 1 Complete</h1>
+        <h3 class="ui center aligned header">Congratulations on your 200th beer!</h3>
+        <p class="lead">You've been awarded a Free Plate Party for you and your friends! Redeem this ticket at the bar to receive your award.</p>
+
+        <a href="#" class="ui button secondary">Redeem Your Reward</a>
+      </div>
+    </div>
+
+    <div class="ui segments">
+      <div class="ui segment">
+        <h3 class="ui center aligned header">Achievements</h3>
+      </div>
+    </div>
+
+  </div>
+  <div class="column" ui-view="tastedBrews">
+
+  </div>
+</div>

@@ -1,0 +1,12 @@
+<h3>Your Card</h3>
+<div class="alert callout" ng-show="error">{{ errorMessage }}</div>
+<form class="ui form" name="cards" ng-submit="update()" enctype="multipart/form-data" novalidate>
+
+  <div class="field required username">
+    <input type="text" name="username"  ng-model="updateUser.card.number" placeholder="Username" autocapitalize="none" autocorrect="off" required autofocus />
+  </div>
+
+  <button class="ui primary button" type="submit" ng-disabled="disabled">Save</button>
+</form>
+
+<h3>Linked Cards</h3>

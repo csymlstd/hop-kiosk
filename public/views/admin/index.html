@@ -1,0 +1,28 @@
+<div class="ui vertically padded container grid">
+  <div class="four wide column">
+    <h1>{{ title }}</h1>
+  <div class="ui vertical menu">
+    <a class="item" ng-class="{active: $state.is('admin')}" ui-sref="admin">Dashboard</a>
+    <a class="item" ng-class="{active: $state.is('admin.brews')}" ui-sref="admin.brews">Brews</a>
+    <a class="item" ng-class="{active: $state.is('admin.brewers')}" ui-sref="admin.brewers">Brewers</a>
+    <a class="item" ng-class="{active: $state.is('admin.stores')}" ui-sref="admin.stores">Stores</a>
+    <a class="item" ng-class="{active: $state.is('admin.users')}" ui-sref="admin.users">Users</a>
+    <a class="item" ng-class="{active: $state.is('admin.achievements')}" ui-sref="admin.achievements">Achievements</a>
+    <a class="item" ng-class="{active: $state.is('admin.applications')}" ui-sref="admin.applications">Applications</a>
+    <div class="item">
+      Configuration
+      <div class="menu">
+        <a class="item" ng-class="{active: $state.is('admin.config')}" ui-sref="admin.config">Application</a>
+        <a class="item" ng-class="{active: $state.is('admin.config.club')}" ui-sref="admin.config.club">Club</a>
+        <a class="item" ng-class="{active: $state.is('admin.config.kiosks')}" ui-sref="admin.config.kiosks">Kiosks</a>
+        <a class="item" ng-class="{active: $state.is('admin.config.api')}" ui-sref="admin.config.api">API</a>
+        <a class="item" ng-class="{active: $state.is('admin.config.integrations')}" ui-sref="admin.config.integrations">Integrations</a>
+        <a class="item" ng-class="{active: $state.is('admin.config.cache')}" ui-sref="admin.config.cache">Cache</a>
+      </div>
+    </div>
+  </div>
+  </div>
+  <div class="twelve wide column">
+    <div ui-view="admin"></div>
+  </div>
+</div>

@@ -1,0 +1,37 @@
+<!-- <h3>{{ title }}</h3> -->
+
+<a ui-sref="admin.brews.add" class="ui primary button">Add Brew</a>
+
+<table class="ui celled table">
+<thead>
+  <tr>
+    <th class="center aligned">
+      <div data-inverted data-tooltip="@ Your Store" data-position="top left"> @ </div>
+    </th>
+    <th>
+      <div class="ui input" data-inverted data-tooltip="Filter by Brew Name" data-position="top left"><input ng-model="query.search.brew" placeholder="Brew" /></div>
+    </th>
+    <th>
+      <div class="ui input" data-inverted data-tooltip="Filter by Brewery Name" data-position="top left"><input ng-model="query.search.brewer" placeholder="Brewer" /></div>
+    </th>
+    <th>Added</th>
+    <th>Actions</th>
+  </tr>
+</thead>
+<tbody>
+  <tr ng-repeat="brew in brews"><!-- | searchFor:query.search.brew:brew._id -->
+    <td class="center aligned">
+      <div ng-if="hasBrew(brew._id)" data-inverted data-tooltip="In Stock"><i class="checkmark icon green fitted"></i></div>
+      <div ng-if="!hasBrew(brew._id)" data-inverted data-tooltip="Add to your Store" ui-sref="admin.brews.collect({brew_id: brew._id})"><i class="checkmark icon disabled fitted"></i></div>
+    </td>
+    <td>{{brew.name}}</td>
+    <td>{{brew.brewer.name}}</td>
+    <td>{{brew.created | amDateFormat:'ddd, MMM Do YYYY'}}</td>
+    <td>
+      <a class="ui mini button" ui-sref="admin.brews.edit({brew_id: brew._id})">Edit</a>
+      <a class="ui red mini button" ng-click="delete()" ng-class="{'disabled':hasBrew(brew._id)}">Delete</a>
+    </td>
+  </tr>
+</tbody>
+
+</table>
